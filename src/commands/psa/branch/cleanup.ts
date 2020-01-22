@@ -3,7 +3,6 @@ import { Messages, SfdxProject } from '@salesforce/core';
 import { AnyJson, JsonArray, JsonMap } from "@salesforce/ts-types";
 import * as fs from 'fs';
 import * as fse from 'fs-extra';
-import * as glob from 'glob';
 import * as path from 'path';
 
 Messages.importMessagesDirectory(__dirname);
@@ -20,7 +19,7 @@ export default class Cleanup extends SfdxCommand {
     public static description = messages.getMessage('command');
 
     protected static flagsConfig = {
-        apiversion: flags.number({ char: 'v', description: messages.getMessage('apiVersionFlag'), min: 1, default: 48 }),
+        version: flags.number({ char: 'v', description: messages.getMessage('versionFlag'), min: 1, default: 48 }),
         manifestfolder: flags.directory({ char: 'm', description: messages.getMessage('manifestFolderFlag'), required: true })
     };
 
@@ -46,7 +45,7 @@ export default class Cleanup extends SfdxCommand {
         }
 
         templateFiles.forEach(templateFile => {
-            const xml = fs.readFileSync(path.resolve(templateFolder, templateFile)).toString().replace(VERSION_TAG, this.flags.apiversion.toFixed(1));
+            const xml = fs.readFileSync(path.resolve(templateFolder, templateFile)).toString().replace(VERSION_TAG, this.flags.version.toFixed(1));
             fs.writeFileSync(path.resolve(this.flags.manifestfolder, templateFile), xml);
             this.ux.log(messages.getMessage('successClean', [templateFile]));
         });

@@ -30,29 +30,29 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx psa:branch:cleanup --manifestfolder <directory> [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup---manifestfolder-directory---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatafilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatavalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
-## `sfdx psa:branch:cleanup --manifestfolder <directory> [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 Delete profiles, empty pre-deploy folder, empty post-deploy-folder, reset package.xml and destructiveChanges.xml
 
 ```
 USAGE
-  $ sfdx psa:branch:cleanup --manifestfolder <directory> [--apiversion <string>] [--json] [--loglevel 
+  $ sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
-  --apiversion=apiversion                                                           override the api version used for
-                                                                                    api requests made by this command
+  -m, --manifestfolder=manifestfolder                                               (required) Manifests folder path
+
+  -v, --version=version                                                             [default: 48] API version in
+                                                                                    package.xml
 
   --json                                                                            format output as json
 
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
-
-  --manifestfolder=manifestfolder                                                   (required) Manifests folder path
 ```
 
 _See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/branch/cleanup.js)_
