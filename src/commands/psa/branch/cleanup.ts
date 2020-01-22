@@ -9,7 +9,7 @@ import * as path from 'path';
 Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('sfdx-plugin-psa', 'cleanup');
-const templateFolder = path.resolve(__dirname, '../../../../template/vcs/setup/git/');
+const templateFolder = path.resolve(__dirname, '../../../../template/branch/cleanup/');
 const templateFiles = ['destructiveChanges.xml', 'package.xml'];
 const VERSION_TAG = '{{version}}';
 
@@ -20,13 +20,12 @@ export default class Cleanup extends SfdxCommand {
     public static description = messages.getMessage('command');
 
     protected static flagsConfig = {
-        apiversion: flags.builtin(),
-        manifestfolder: flags.directory({ description: messages.getMessage('manifestFolderFlag'), required: true })
-
+        apiversion: flags.number({ char: 'v', description: messages.getMessage('apiVersionFlag'), min: 1, default: 48 }),
+        manifestfolder: flags.directory({ char: 'm', description: messages.getMessage('manifestFolderFlag'), required: true })
     };
 
     public async run(): Promise<AnyJson> {
-        // get the sfdx-project file
+
         const project = await SfdxProject.resolve();
         const projectJson = await project.resolveProjectConfig();
         const basePath = project.getPath();
@@ -34,23 +33,41 @@ export default class Cleanup extends SfdxCommand {
         for (let el of packageDirectories) {
             el = el as JsonMap;
             if (el.default == true) {
-                glob.sync(`${basePath}/${el.path}/**/profile`)
+                findInDir(`${el.path}`, /\.profile/)
                     .forEach(fs.unlinkSync);
-                this.ux.log(messages.getMessage('successClean', ['Profiles']));
+                this.ux.log(messages.getMessage('successClean', ['profiles']));
             } else {
                 const dirPath = path.resolve(basePath, `${el.path}`);
                 fse.removeSync(dirPath);
                 fse.ensureDirSync(dirPath);
-                this.ux.log(messages.getMessage('successClean', [`${el.name}`]));
+                fs.writeFileSync(path.join(dirPath, '.gitkeep'), '');
+                this.ux.log(messages.getMessage('successClean', [`${el.path}`]));
             }
         }
 
         templateFiles.forEach(templateFile => {
-            const xml = fs.readFileSync(path.resolve(templateFolder, templateFile)).toString().replace(VERSION_TAG, this.flags.apiversion);
+            const xml = fs.readFileSync(path.resolve(templateFolder, templateFile)).toString().replace(VERSION_TAG, this.flags.apiversion.toFixed(1));
             fs.writeFileSync(path.resolve(this.flags.manifestfolder, templateFile), xml);
             this.ux.log(messages.getMessage('successClean', [templateFile]));
         });
 
         return null;
     }
+}
+
+const findInDir = (dir, filter, fileList = []) => {
+    const files = fs.readdirSync(dir);
+
+    files.forEach((file) => {
+        const filePath = path.join(dir, file);
+        const fileStat = fs.lstatSync(filePath);
+
+        if (fileStat.isDirectory()) {
+            findInDir(filePath, filter, fileList);
+        } else if (filter.test(filePath)) {
+            fileList.push(filePath);
+        }
+    });
+
+    return fileList;
 }
