@@ -9,7 +9,8 @@ Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('sfdx-plugin-psa', 'cleanup');
 const templateFolder = path.resolve(__dirname, '../../../../template/branch/cleanup/');
-const templateFiles = ['destructiveChanges.xml', 'package.xml'];
+const packageTemplateFiles = ['destructiveChanges.xml', 'package.xml'];
+const customLabelTemplateFile = 'CustomLabels.xml';
 const VERSION_TAG = '{{version}}';
 
 export default class Cleanup extends SfdxCommand {
@@ -29,12 +30,25 @@ export default class Cleanup extends SfdxCommand {
         const projectJson = await project.resolveProjectConfig();
         const basePath = project.getPath();
         const packageDirectories = projectJson['packageDirectories'] as JsonArray || [];
+        let customLabelTemplate = null;
         for (let el of packageDirectories) {
             el = el as JsonMap;
             if (el.default == true) {
                 findInDir(`${el.path}`, /\.profile/)
                     .forEach(fs.unlinkSync);
                 this.ux.log(messages.getMessage('successClean', ['profiles']));
+                findInDir(`${el.path}`, /\.permissionset/)
+                    .forEach(fs.unlinkSync);
+                this.ux.log(messages.getMessage('successClean', ['permission sets']));
+
+                findInDir(`${el.path}`, /\.labels/)
+                    .forEach(label => {
+                        if (customLabelTemplate === null) {
+                            customLabelTemplate = fs.readFileSync(path.resolve(templateFolder, customLabelTemplateFile))
+                        }
+                        fs.writeFileSync(label, customLabelTemplate);
+                    });
+                this.ux.log(messages.getMessage('successClean', ['custom labels']));
             } else {
                 const dirPath = path.resolve(basePath, `${el.path}`);
                 fse.removeSync(dirPath);
@@ -44,7 +58,7 @@ export default class Cleanup extends SfdxCommand {
             }
         }
 
-        templateFiles.forEach(templateFile => {
+        packageTemplateFiles.forEach(templateFile => {
             const xml = fs.readFileSync(path.resolve(templateFolder, templateFile)).toString().replace(VERSION_TAG, this.flags.version.toFixed(1));
             fs.writeFileSync(path.resolve(this.flags.manifestfolder, templateFile), xml);
             this.ux.log(messages.getMessage('successClean', [templateFile]));

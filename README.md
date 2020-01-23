@@ -30,9 +30,27 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
+* [`sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-packagelint---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatafilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatavalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+
+## `sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+reorder element and fix indentation in package.xml and destructiveChanges.xml files
+
+```
+USAGE
+  $ sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+OPTIONS
+  --json                                                                            format output as json
+
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+```
+
+_See code: [lib/commands/package/lint.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/package/lint.js)_
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -59,7 +77,7 @@ _See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon/sfd
 
 ## `sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Delete profiles, empty pre-deploy folder, empty post-deploy-folder, reset package.xml and destructiveChanges.xml
+remove every component not listed in the package
 
 ```
 USAGE
@@ -76,7 +94,7 @@ _See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon/sf
 
 ## `sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Delete profiles, empty pre-deploy folder, empty post-deploy-folder, reset package.xml and destructiveChanges.xml
+validate package.xml element are in the sources
 
 ```
 USAGE

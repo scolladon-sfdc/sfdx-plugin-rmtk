@@ -4,9 +4,10 @@ import { AnyJson } from "@salesforce/ts-types";
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-psa', 'filter');
+const messages = Messages.loadMessages('sfdx-plugin-psa', 'lint');
 
-export default class Filter extends SfdxCommand {
+// Lint the package.xml in order to reorder it and cleanup the output
+export default class Lint extends SfdxCommand {
 
     protected static requiresProject = true;
 
