@@ -50,7 +50,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/package/lint.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/package/lint.js)_
+_See code: [lib/commands/package/lint.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.0/lib/commands/package/lint.js)_
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -73,7 +73,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/branch/cleanup.js)_
+_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/branch/cleanup.js)_
 
 ## `sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -90,7 +90,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/metadata/filter.js)_
+_See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/metadata/filter.js)_
 
 ## `sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -107,7 +107,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/validate.js](https://github.com/scolladon/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/metadata/validate.js)_
+_See code: [lib/commands/psa/metadata/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.0/lib/commands/psa/metadata/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
