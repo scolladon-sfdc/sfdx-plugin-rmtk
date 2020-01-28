@@ -3,7 +3,7 @@
   "description": "sfdx plugin for PSA project",
   "version": "0.0.0",
   "author": "Sébastien Colladon @scolladon",
-  "bugs": "https://github.com/scolladon/sfdx-plugin-psa/issues",
+  "bugs": "https://github.com/scolladon-sfdc/sfdx-plugin-psa/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -37,7 +37,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/scolladon/sfdx-plugin-psa",
+  "homepage": "https://github.com/scolladon-sfdc/sfdx-plugin-psa",
   "keywords": [
     "sfdx-plugin"
   ],
@@ -54,7 +54,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "scolladon/sfdx-plugin-psa",
+  "repository": "scolladon-sfdc/sfdx-plugin-psa",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
