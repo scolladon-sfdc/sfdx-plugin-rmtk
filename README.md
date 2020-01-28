@@ -22,7 +22,7 @@ $ npm install -g sfdx-plugin-psa
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-psa/0.0.1 darwin-x64 node-v10.16.3
+sfdx-plugin-psa/0.0.2 darwin-x64 node-v10.16.3
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -50,7 +50,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/package/lint.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.1/lib/commands/package/lint.js)_
+_See code: [lib/commands/package/lint.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/package/lint.js)_
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -73,7 +73,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.1/lib/commands/psa/branch/cleanup.js)_
+_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/branch/cleanup.js)_
 
 ## `sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -90,7 +90,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.1/lib/commands/psa/metadata/filter.js)_
+_See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/metadata/filter.js)_
 
 ## `sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -107,7 +107,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.1/lib/commands/psa/metadata/validate.js)_
+_See code: [lib/commands/psa/metadata/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/metadata/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
