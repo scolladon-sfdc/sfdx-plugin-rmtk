@@ -1,6 +1,6 @@
 module.exports = {
-    "command": "Prettify and sort package.xml",
-    "packagesFlagDescription": "list of packages (package and destructive) file path",
+    "command": "reorder element and fix indentation in package.xml and destructiveChanges.xml files",
+    "packagesFlagDescription": "list of packages (package and destructive) file path separated by ':'",
     "failureProcess": "Prettify error: %s",
     "successProcess": "Prettify done"
 };
