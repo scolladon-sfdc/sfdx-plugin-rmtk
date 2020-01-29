@@ -32,8 +32,9 @@ USAGE
 <!-- commands -->
 * [`sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-packagelint---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatafilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psametadatavalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagefilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
 ## `sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -75,13 +76,13 @@ OPTIONS
 
 _See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/branch/cleanup.js)_
 
-## `sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 remove every component not listed in the package
 
 ```
 USAGE
-  $ sfdx psa:metadata:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
   --json                                                                            format output as json
@@ -90,15 +91,36 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/metadata/filter.js)_
+_See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/filter.js)_
 
-## `sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Prettify and sort package.xml
+
+```
+USAGE
+  $ sfdx psa:package:prettify [-p <array>] [--json] [--loglevel 
+  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+OPTIONS
+  -p, --packages=packages                                                           list of packages (package and
+                                                                                    destructive) file path
+
+  --json                                                                            format output as json
+
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+```
+
+_See code: [lib/commands/psa/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/prettify.js)_
+
+## `sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 validate package.xml element are in the sources
 
 ```
 USAGE
-  $ sfdx psa:metadata:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
   --json                                                                            format output as json
@@ -107,7 +129,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/metadata/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/metadata/validate.js)_
+_See code: [lib/commands/psa/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
