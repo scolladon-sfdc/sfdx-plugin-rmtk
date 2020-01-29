@@ -19,6 +19,7 @@ export default class Prettify extends SfdxCommand {
             char: 'p',
             description: messages.getMessage('packagesFlagDescription'),
             delimiter: ':',
+            required: true,
             map: (val: string) => path.parse(val)
         })
     };

@@ -32,8 +32,8 @@ USAGE
 <!-- commands -->
 * [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagefilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:prettify -p <array> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate--p-filepath--m-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -75,19 +75,19 @@ OPTIONS
 
 _See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/package/filter.js)_
 
-## `sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:package:prettify -p <array> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 reorder element and fix indentation in package.xml and destructiveChanges.xml files
 
 ```
 USAGE
-  $ sfdx psa:package:prettify [-p <array>] [--json] [--loglevel 
+  $ sfdx psa:package:prettify -p <array> [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
-  -p, --packages=packages                                                           list of packages (package and
-                                                                                    destructive) file path separated by
-                                                                                    ':'
+  -p, --packages=packages                                                           (required) list of packages (package
+                                                                                    and destructive) file path separated
+                                                                                    by ':'
 
   --json                                                                            format output as json
 
@@ -97,15 +97,22 @@ OPTIONS
 
 _See code: [lib/commands/psa/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/package/prettify.js)_
 
-## `sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 validate package.xml element are in the sources
 
 ```
 USAGE
-  $ sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel 
+  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
+  -m, --metadata-describe=metadata-describe                                         (required) metadata-describe.json
+                                                                                    file path to validate package with
+
+  -p, --package=package                                                             (required) package.xml file path to
+                                                                                    validate package with
+
   --json                                                                            format output as json
 
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
