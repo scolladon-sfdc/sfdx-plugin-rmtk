@@ -1,7 +1,7 @@
 {
   "name": "sfdx-plugin-psa",
   "description": "sfdx plugin for PSA project",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Sébastien Colladon @scolladon",
   "bugs": "https://github.com/scolladon-sfdc/sfdx-plugin-psa/issues",
   "dependencies": {
