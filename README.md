@@ -22,7 +22,7 @@ $ npm install -g sfdx-plugin-psa
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-psa/0.0.2 darwin-x64 node-v10.16.3
+sfdx-plugin-psa/0.0.3 darwin-x64 node-v10.16.3
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -30,28 +30,10 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-packagelint---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagefilter---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-
-## `sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
-
-reorder element and fix indentation in package.xml and destructiveChanges.xml files
-
-```
-USAGE
-  $ sfdx package:lint [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
-
-OPTIONS
-  --json                                                                            format output as json
-
-  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
-                                                                                    this command invocation
-```
-
-_See code: [lib/commands/package/lint.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/package/lint.js)_
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -74,7 +56,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/branch/cleanup.js)_
+_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/branch/cleanup.js)_
 
 ## `sfdx psa:package:filter [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -91,11 +73,11 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/filter.js)_
+_See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/package/filter.js)_
 
 ## `sfdx psa:package:prettify [-p <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Prettify and sort package.xml
+reorder element and fix indentation in package.xml and destructiveChanges.xml files
 
 ```
 USAGE
@@ -104,7 +86,8 @@ USAGE
 
 OPTIONS
   -p, --packages=packages                                                           list of packages (package and
-                                                                                    destructive) file path
+                                                                                    destructive) file path separated by
+                                                                                    ':'
 
   --json                                                                            format output as json
 
@@ -112,7 +95,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/prettify.js)_
+_See code: [lib/commands/psa/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/package/prettify.js)_
 
 ## `sfdx psa:package:validate [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -129,7 +112,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.2/lib/commands/psa/package/validate.js)_
+_See code: [lib/commands/psa/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.3/lib/commands/psa/package/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
