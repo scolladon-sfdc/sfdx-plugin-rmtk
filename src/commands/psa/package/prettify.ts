@@ -1,10 +1,11 @@
 import { flags, SfdxCommand } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from "@salesforce/ts-types";
+import { parseStringAsync } from '../../../utils/xml2jsHelper';
+import { writeFileAsync } from '../../../utils/writeFileAsync';
+import { packageBuilder } from '../../../utils/xmlFromJson';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as xml2js from 'xml2js';
-import * as xmlbuilder from 'xmlbuilder';
 
 Messages.importMessagesDirectory(__dirname);
 
@@ -31,7 +32,7 @@ export default class Prettify extends SfdxCommand {
                     readFileAsync(x)
                         .then(parseStringAsync)
                         .then(packageBuilder)
-                        .then(sortedContent => writeFileAsync(x, sortedContent))
+                        .then(sortedContent => writeFileAsync(x, `${sortedContent}`))
                 )
         )
             .then(() => this.ux.log(messages.getMessage('successProcess')))
@@ -46,36 +47,4 @@ const readFileAsync = file => {
             resolve(data.replace("\ufeff", ""))
         })
     })
-}
-const writeFileAsync = (file, fileContent) => {
-    return new Promise((resolve) => {
-        fs.writeFile(file, fileContent, () => {
-            resolve()
-        })
-    })
-}
-
-const parseStringAsync = (content) => {
-    return new Promise((resolve) => {
-        const parser = new xml2js.Parser();
-        parser.parseString(content, (_err, result) => {
-            resolve(result)
-        })
-    })
-}
-
-const packageBuilder = (packageContent) => {
-    const pkg = {};
-    packageContent.Package.types.reduce((r, e) => pkg[e.name[0]] = [...new Set((pkg[e.name[0]] || []).concat(e.members))], pkg)
-    const xml = xmlbuilder.create('Package')
-        .att('xmlns', 'http://soap.sforce.com/2006/04/metadata')
-        .dec('1.0', 'UTF-8');
-
-    Object.keys(pkg).filter(x => Array.isArray(pkg[x])).sort().forEach(i => {
-        const types = xml.ele('types');
-        pkg[i].sort().forEach(y => types.ele('members', y))
-        types.ele('name', i);
-    });
-    xml.ele('version', '' + packageContent.Package.version[0]);
-    return xml.end({ pretty: true, indent: '    ', newline: '\n' }) + '\n';
 }

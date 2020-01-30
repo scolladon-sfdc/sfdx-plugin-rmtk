@@ -1,6 +1,7 @@
 import { flags, SfdxCommand } from '@salesforce/command';
 import { Messages, SfdxProject } from '@salesforce/core';
 import { AnyJson, JsonArray, JsonMap } from "@salesforce/ts-types";
+import { findInDir } from '../../../utils/findInDir';
 import * as fs from 'fs';
 import * as fse from 'fs-extra';
 import * as path from 'path';
@@ -66,21 +67,4 @@ export default class Cleanup extends SfdxCommand {
 
         return null;
     }
-}
-
-const findInDir = (dir, filter, fileList = []) => {
-    const files = fs.readdirSync(dir);
-
-    files.forEach((file) => {
-        const filePath = path.join(dir, file);
-        const fileStat = fs.lstatSync(filePath);
-
-        if (fileStat.isDirectory()) {
-            findInDir(filePath, filter, fileList);
-        } else if (filter.test(filePath)) {
-            fileList.push(filePath);
-        }
-    });
-
-    return fileList;
 }
