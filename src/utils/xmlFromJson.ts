@@ -1,4 +1,5 @@
 import * as xmlbuilder from 'xmlbuilder';
+import * as xml2js from 'xml2js';
 
 const end = { pretty: true, indent: '    ', newline: '\n' }
 
@@ -39,4 +40,9 @@ const customLabelBuilder = (clContent: String): String => {
     return xml.end(end);
 }
 
-export { packageBuilder, customLabelBuilder }
+const ppsBuilder = (ppsContent: String): String => {
+    const builder = new xml2js.Builder({ 'xmldec': { 'version': '1.0', 'encoding': 'UTF-8' }, 'renderOpts': { 'pretty': true, 'indent': '    ', 'newline': '\r\n' } });
+    return builder.buildObject(ppsContent);
+}
+
+export { packageBuilder, customLabelBuilder, ppsBuilder }

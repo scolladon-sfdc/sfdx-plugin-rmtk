@@ -32,7 +32,7 @@ USAGE
 <!-- commands -->
 * [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagefilter--p-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:prettify -p <array> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array--f-array--s-array--l-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate--p-filepath--m-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
 ## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
@@ -79,19 +79,27 @@ OPTIONS
 
 _See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.5/lib/commands/psa/package/filter.js)_
 
-## `sfdx psa:package:prettify -p <array> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 reorder element and fix indentation in package.xml and destructiveChanges.xml files
 
 ```
 USAGE
-  $ sfdx psa:package:prettify -p <array> [--json] [--loglevel 
+  $ sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
-  -p, --packages=packages                                                           (required) list of packages (package
-                                                                                    and destructive) file path separated
+  -f, --profiles=profiles                                                           list of profiles file path separated
                                                                                     by ':'
+
+  -l, --labels=labels                                                               Custom Labels filepath
+
+  -p, --packages=packages                                                           list of packages (package and
+                                                                                    destructive) file path separated by
+                                                                                    ':'
+
+  -s, --permission-sets=permission-sets                                             list of permission sets file path
+                                                                                    separated by ':'
 
   --json                                                                            format output as json
 
