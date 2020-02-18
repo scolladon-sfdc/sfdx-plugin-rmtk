@@ -32,24 +32,7 @@ export default class prepare extends SfdxCommand {
 
         // get package.xml
         const pkg = await parseStringAsync(fs.readFileSync(this.flags.package));
-        const customLabels = new Set(pkg['Package']['types'].reduce((r, e) => {
-            if (e.name[0] == 'CustomLabel') {
-                r.push(...e.members);
-                e.name[0] = 'CustomLabels';
-                e.members = ['*'];
-            }
-            return r;
-        }, []))
-        customLabels.delete('*');
-
         const defaultDir = (projectJson['packageDirectories'] as JsonArray).reduce((a, v) => v['default'] == true ? a = v['path'] : a = a, '');
-        findInDir(path.join(basePath, `${defaultDir}`), /\.labels/)
-            .forEach(async labelFile => {
-                const cl = await parseStringAsync(fs.readFileSync(labelFile));
-                cl['CustomLabels']['labels'] = cl['CustomLabels']['labels'].filter(label => customLabels.has(label['fullName'][0]));
-                fs.writeFileSync(labelFile, customLabelBuilder(cl));
-            });
-        fs.writeFileSync(this.flags.package, `${packageBuilder(pkg)}`);
         this.ux.log(messages.getMessage('successProcess', [this.flags.package, this.flags.package]))
 
         return null;
