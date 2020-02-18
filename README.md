@@ -1,16 +1,16 @@
-sfdx-plugin-psa
+sfdx-plugin-rmtk
 ===============
 
-sfdx plugin for PSA project
+Release Management Toolkit sfdx plugin
 
-[![Version](https://img.shields.io/npm/v/sfdx-plugin-psa.svg)](https://npmjs.org/package/sfdx-plugin-psa)
-[![CircleCI](https://circleci.com/gh/scolladon/sfdx-plugin-psa/tree/master.svg?style=shield)](https://circleci.com/gh/scolladon/sfdx-plugin-psa/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/scolladon/sfdx-plugin-psa?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/sfdx-plugin-psa/branch/master)
-[![Codecov](https://codecov.io/gh/scolladon/sfdx-plugin-psa/branch/master/graph/badge.svg)](https://codecov.io/gh/scolladon/sfdx-plugin-psa)
-[![Greenkeeper](https://badges.greenkeeper.io/scolladon/sfdx-plugin-psa.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/scolladon/sfdx-plugin-psa/badge.svg)](https://snyk.io/test/github/scolladon/sfdx-plugin-psa)
-[![Downloads/week](https://img.shields.io/npm/dw/sfdx-plugin-psa.svg)](https://npmjs.org/package/sfdx-plugin-psa)
-[![License](https://img.shields.io/npm/l/sfdx-plugin-psa.svg)](https://github.com/scolladon/sfdx-plugin-psa/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/sfdx-plugin-rmtk.svg)](https://npmjs.org/package/sfdx-plugin-rmtk)
+[![CircleCI](https://circleci.com/gh/scolladon/sfdx-plugin-rmtk/tree/master.svg?style=shield)](https://circleci.com/gh/scolladon/sfdx-plugin-rmtk/tree/master)
+[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/scolladon/sfdx-plugin-rmtk?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/sfdx-plugin-rmtk/branch/master)
+[![Codecov](https://codecov.io/gh/scolladon/sfdx-plugin-rmtk/branch/master/graph/badge.svg)](https://codecov.io/gh/scolladon/sfdx-plugin-rmtk)
+[![Greenkeeper](https://badges.greenkeeper.io/scolladon/sfdx-plugin-rmtk.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/scolladon/sfdx-plugin-rmtk/badge.svg)](https://snyk.io/test/github/scolladon/sfdx-plugin-rmtk)
+[![Downloads/week](https://img.shields.io/npm/dw/sfdx-plugin-rmtk.svg)](https://npmjs.org/package/sfdx-plugin-rmtk)
+[![License](https://img.shields.io/npm/l/sfdx-plugin-rmtk.svg)](https://github.com/scolladon/sfdx-plugin-rmtk/blob/master/package.json)
 
 <!-- toc -->
 * [Debugging your plugin](#debugging-your-plugin)
@@ -18,11 +18,11 @@ sfdx plugin for PSA project
 <!-- install -->
 <!-- usage -->
 ```sh-session
-$ npm install -g sfdx-plugin-psa
+$ npm install -g sfdx-plugin-rmtk
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-psa/0.0.6 darwin-x64 node-v10.16.3
+sfdx-plugin-rmtk/0.0.6 darwin-x64 node-v10.16.3
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -30,18 +30,18 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psabranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagefilter--p-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackageprettify--p-array--f-array--s-array--l-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-psapackagevalidate--p-filepath--m-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rmtk:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkbranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackagefilter--p-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackageprettify--p-array--f-array--s-array--l-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackagevalidate--p-filepath--m-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
-## `sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rmtk:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 Delete profiles, empty pre-deploy folder, empty post-deploy-folder, reset package.xml and destructiveChanges.xml
 
 ```
 USAGE
-  $ sfdx psa:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel 
+  $ sfdx rmtk:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -56,15 +56,15 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.6/lib/commands/psa/branch/cleanup.js)_
+_See code: [lib/commands/rmtk/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/branch/cleanup.js)_
 
-## `sfdx psa:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 prepare sources from a package.xml file for convert or deploy
 
 ```
 USAGE
-  $ sfdx psa:package:filter -p <filepath> [--json] [--loglevel 
+  $ sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -77,15 +77,15 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.6/lib/commands/psa/package/filter.js)_
+_See code: [lib/commands/rmtk/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/filter.js)_
 
-## `sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 reorder element and fix indentation in package.xml and destructiveChanges.xml files
 
 ```
 USAGE
-  $ sfdx psa:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel 
+  $ sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -107,15 +107,15 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.6/lib/commands/psa/package/prettify.js)_
+_See code: [lib/commands/rmtk/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/prettify.js)_
 
-## `sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 validate package.xml element are in the sources
 
 ```
 USAGE
-  $ sfdx psa:package:validate -p <filepath> -m <filepath> [--json] [--loglevel 
+  $ sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -131,7 +131,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/psa/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-psa/blob/v0.0.6/lib/commands/psa/package/validate.js)_
+_See code: [lib/commands/rmtk/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

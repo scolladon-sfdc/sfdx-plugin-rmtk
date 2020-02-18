@@ -9,7 +9,7 @@ import * as path from 'path';
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-psa', 'prettify');
+const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'prettify');
 const INPUT_DELIMITER = ':'
 
 export default class Prettify extends SfdxCommand {

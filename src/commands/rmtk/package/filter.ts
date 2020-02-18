@@ -9,7 +9,7 @@ import * as path from 'path';
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-psa', 'filter');
+const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'filter');
 
 export default class Filter extends SfdxCommand {
 

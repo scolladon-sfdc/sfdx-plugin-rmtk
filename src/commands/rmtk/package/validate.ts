@@ -9,7 +9,7 @@ import * as xml2js from 'xml2js';
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-psa', 'validate');
+const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'validate');
 
 export default class Validate extends SfdxCommand {
     /*

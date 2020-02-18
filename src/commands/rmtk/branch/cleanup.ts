@@ -8,7 +8,7 @@ import * as path from 'path';
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-psa', 'cleanup');
+const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'cleanup');
 const templateFolder = path.resolve(__dirname, '../../../../template/branch/cleanup/');
 const packageTemplateFiles = ['destructiveChanges.xml', 'package.xml'];
 const customLabelTemplateFile = 'CustomLabels.xml';
