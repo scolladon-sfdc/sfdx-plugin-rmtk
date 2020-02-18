@@ -77,8 +77,8 @@ export default class Validate extends SfdxCommand {
             }
             // Check existence of the file in the source from the package.xml
             for (let member of pkg[type]) {
-                const memberName = member + (m.hasOwnProperty(type) && m[type].hasOwnProperty('suffix') ? `.${m[type].suffix}` : '');
-                if (m.hasOwnProperty(type) && [...files].every(el => !`${el}`.includes(memberName))) {
+                const memberName = member + (m.hasOwnProperty(type) && m[type].hasOwnProperty('suffix') ? `.${m[type].suffix}-meta.xml` : '');
+                if (m.hasOwnProperty(type) && [...files].every(el => `${el}` !== memberName)) {
                     this.ux.log(messages.getMessage('metadataNotPresent', [memberName, this.flags.package]));
                     success = false;
                 }

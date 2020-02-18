@@ -9,9 +9,9 @@ import * as path from 'path';
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'filter');
+const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'prepare');
 
-export default class Filter extends SfdxCommand {
+export default class prepare extends SfdxCommand {
 
     protected static requiresProject = true;
 
@@ -35,6 +35,7 @@ export default class Filter extends SfdxCommand {
         const customLabels = new Set(pkg['Package']['types'].reduce((r, e) => {
             if (e.name[0] == 'CustomLabel') {
                 r.push(...e.members);
+                e.name[0] = 'CustomLabels';
                 e.members = ['*'];
             }
             return r;
