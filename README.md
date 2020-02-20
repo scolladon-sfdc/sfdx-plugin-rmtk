@@ -22,7 +22,7 @@ $ npm install -g sfdx-plugin-rmtk
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-rmtk/0.0.6 darwin-x64 node-v10.16.3
+sfdx-plugin-rmtk/0.0.7 darwin-x64 node-v10.16.3
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -31,7 +31,7 @@ USAGE
 <!-- usagestop -->
 <!-- commands -->
 * [`sfdx rmtk:branch:cleanup -m <directory> [-v <number>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkbranchcleanup--m-directory--v-number---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-* [`sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackagefilter--p-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rmtk:package:prepare -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackageprepare--p-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackageprettify--p-array--f-array--s-array--l-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rmtkpackagevalidate--p-filepath--m-filepath---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
@@ -56,15 +56,15 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/branch/cleanup.js)_
+_See code: [lib/commands/rmtk/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.7/lib/commands/rmtk/branch/cleanup.js)_
 
-## `sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rmtk:package:prepare -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 prepare sources from a package.xml file for convert or deploy
 
 ```
 USAGE
-  $ sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel 
+  $ sfdx rmtk:package:prepare -p <filepath> [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -77,7 +77,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/filter.js)_
+_See code: [lib/commands/rmtk/package/prepare.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.7/lib/commands/rmtk/package/prepare.js)_
 
 ## `sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -107,7 +107,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/prettify.js)_
+_See code: [lib/commands/rmtk/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.7/lib/commands/rmtk/package/prettify.js)_
 
 ## `sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -131,7 +131,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.6/lib/commands/rmtk/package/validate.js)_
+_See code: [lib/commands/rmtk/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.0.7/lib/commands/rmtk/package/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
