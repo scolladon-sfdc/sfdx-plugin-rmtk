@@ -50,7 +50,9 @@ export default class Prettify extends SfdxCommand {
                     .then(parseStringAsync)
                     .then(packageBuilder)
                     .then(sortedContent => writeFileAsync(x, `${sortedContent}`))
+                    .then(() => this.ux.log(messages.getMessage('logPrettify', [x])))
                     .then(res)
+                    .catch(err => this.ux.log(messages.getMessage('errorProcess', [err.message])))
             )), jobs)
         }
         if (this.flags.profiles !== undefined) {
@@ -59,7 +61,9 @@ export default class Prettify extends SfdxCommand {
                     .then(parseStringAsync)
                     .then(ppsBuilder)
                     .then(sortedContent => writeFileAsync(x, `${sortedContent}`))
+                    .then(() => this.ux.log(messages.getMessage('logPrettify', [x])))
                     .then(res)
+                    .catch(err => this.ux.log(messages.getMessage('errorProcess', [err.message])))
             )), jobs)
         }
         if (this.flags['permission-sets'] !== undefined) {
@@ -68,7 +72,9 @@ export default class Prettify extends SfdxCommand {
                     .then(parseStringAsync)
                     .then(ppsBuilder)
                     .then(sortedContent => writeFileAsync(x, `${sortedContent}`))
+                    .then(() => this.ux.log(messages.getMessage('logPrettify', [x])))
                     .then(res)
+                    .catch(err => this.ux.log(messages.getMessage('errorProcess', [err.message])))
             )), jobs)
         }
         if (this.flags.labels !== undefined) {
@@ -77,7 +83,9 @@ export default class Prettify extends SfdxCommand {
                     .then(parseStringAsync)
                     .then(customLabelBuilder)
                     .then(sortedContent => writeFileAsync(this.flags.labels, `${sortedContent}`))
+                    .then(() => this.ux.log(messages.getMessage('logPrettify', [this.flags.labels])))
                     .then(res)
+                    .catch(err => this.ux.log(messages.getMessage('errorProcess', [err.message])))
             ))
         }
 
@@ -87,10 +95,9 @@ export default class Prettify extends SfdxCommand {
     }
 }
 
-const readFileAsync = file => {
-    return new Promise((resolve) => {
-        fs.readFile(file, 'utf8', (_err, data) => {
-            resolve(data.replace("\ufeff", ""))
-        })
+const readFileAsync = file => new Promise((resolve, reject) =>
+    fs.readFile(file, 'utf8', (_err, data) => {
+        if (_err !== undefined) return reject(_err)
+        return resolve(data.replace("\ufeff", ""))
     })
-}
+)
