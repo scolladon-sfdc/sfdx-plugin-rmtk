@@ -97,7 +97,7 @@ export default class Prettify extends SfdxCommand {
 
 const readFileAsync = file => new Promise((resolve, reject) =>
     fs.readFile(file, 'utf8', (_err, data) => {
-        if (_err !== undefined) return reject(_err)
+        if (!!_err) return reject(_err)
         return resolve(data.replace("\ufeff", ""))
     })
 )
