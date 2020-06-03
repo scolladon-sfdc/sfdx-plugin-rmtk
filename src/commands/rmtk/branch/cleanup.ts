@@ -41,10 +41,6 @@ export default class Cleanup extends SfdxCommand {
                     .forEach(fs.unlinkSync);
                 this.ux.log(messages.getMessage('successClean', ['profiles']));
 
-                findInDir(`${el.path}`, /\.permissionset/)
-                    .forEach(fs.unlinkSync);
-                this.ux.log(messages.getMessage('successClean', ['permissionsets']));
-
                 findInDir(`${el.path}`, /\.translation/)
                 .forEach(translation => {
                     if (translationTemplate === null) {
