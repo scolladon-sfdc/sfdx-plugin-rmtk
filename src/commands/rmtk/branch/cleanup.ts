@@ -12,6 +12,7 @@ const messages = Messages.loadMessages('sfdx-plugin-rmtk', 'cleanup');
 const templateFolder = path.resolve(__dirname, '../../../../template/branch/cleanup/');
 const packageTemplateFiles = ['destructiveChanges.xml', 'package.xml'];
 const customLabelTemplateFile = 'CustomLabels.xml';
+const translationTemplateFile = 'Translations.xml';
 const VERSION_TAG = '{{version}}';
 
 export default class Cleanup extends SfdxCommand {
@@ -32,6 +33,7 @@ export default class Cleanup extends SfdxCommand {
         const basePath = project.getPath();
         const packageDirectories = projectJson['packageDirectories'] as JsonArray || [];
         let customLabelTemplate = null;
+        let translationTemplate = null;
         for (let el of packageDirectories) {
             el = el as JsonMap;
             if (el.default == true) {
@@ -44,7 +46,12 @@ export default class Cleanup extends SfdxCommand {
                 this.ux.log(messages.getMessage('successClean', ['permissionsets']));
 
                 findInDir(`${el.path}`, /\.translation/)
-                    .forEach(fs.unlinkSync);
+                .forEach(translation => {
+                    if (translationTemplate === null) {
+                        translationTemplate = fs.readFileSync(path.resolve(templateFolder, translationTemplateFile))
+                    }
+                    fs.writeFileSync(translation, translationTemplate);
+                });
                 this.ux.log(messages.getMessage('successClean', ['translations']));
 
                 findInDir(`${el.path}`, /\.labels/)
