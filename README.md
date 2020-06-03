@@ -22,7 +22,7 @@ $ npm install -g sfdx-plugin-rmtk
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-rmtk/0.1.1 darwin-x64 node-v13.12.0
+sfdx-plugin-rmtk/0.1.1 darwin-x64 node-v14.3.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND

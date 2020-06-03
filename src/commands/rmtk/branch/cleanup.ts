@@ -38,9 +38,14 @@ export default class Cleanup extends SfdxCommand {
                 findInDir(`${el.path}`, /\.profile/)
                     .forEach(fs.unlinkSync);
                 this.ux.log(messages.getMessage('successClean', ['profiles']));
+
                 findInDir(`${el.path}`, /\.permissionset/)
                     .forEach(fs.unlinkSync);
-                this.ux.log(messages.getMessage('successClean', ['permission sets']));
+                this.ux.log(messages.getMessage('successClean', ['permissionsets']));
+
+                findInDir(`${el.path}`, /\.translation/)
+                    .forEach(fs.unlinkSync);
+                this.ux.log(messages.getMessage('successClean', ['translations']));
 
                 findInDir(`${el.path}`, /\.labels/)
                     .forEach(label => {
