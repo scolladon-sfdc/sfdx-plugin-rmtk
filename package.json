@@ -1,7 +1,7 @@
 {
   "name": "sfdx-plugin-rmtk",
   "description": "Release Management Tool Kit sfdx plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Sébastien Colladon @scolladon",
   "bugs": "https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/issues",
   "dependencies": {
