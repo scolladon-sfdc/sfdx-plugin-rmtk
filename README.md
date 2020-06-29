@@ -22,7 +22,7 @@ $ npm install -g sfdx-plugin-rmtk
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-plugin-rmtk/0.1.2 darwin-x64 node-v14.3.0
+sfdx-plugin-rmtk/0.1.3 darwin-x64 node-v14.4.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -56,7 +56,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.2/lib/commands/rmtk/branch/cleanup.js)_
+_See code: [lib/commands/rmtk/branch/cleanup.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.3/lib/commands/rmtk/branch/cleanup.js)_
 
 ## `sfdx rmtk:package:filter -p <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -77,7 +77,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.2/lib/commands/rmtk/package/filter.js)_
+_See code: [lib/commands/rmtk/package/filter.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.3/lib/commands/rmtk/package/filter.js)_
 
 ## `sfdx rmtk:package:prettify [-p <array>] [-f <array>] [-s <array>] [-l <filepath>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -107,7 +107,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.2/lib/commands/rmtk/package/prettify.js)_
+_See code: [lib/commands/rmtk/package/prettify.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.3/lib/commands/rmtk/package/prettify.js)_
 
 ## `sfdx rmtk:package:validate -p <filepath> -m <filepath> [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -131,7 +131,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [lib/commands/rmtk/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.2/lib/commands/rmtk/package/validate.js)_
+_See code: [lib/commands/rmtk/package/validate.js](https://github.com/scolladon-sfdc/sfdx-plugin-rmtk/blob/v0.1.3/lib/commands/rmtk/package/validate.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
