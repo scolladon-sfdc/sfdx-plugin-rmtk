@@ -5,9 +5,10 @@ const end = { pretty: true, indent: '    ', newline: '\n' }
 
 const packageBuilder = (packageContent: String): String => {
     const pkg = {};
-    if (packageContent['Package']['types'] !== undefined) {
-        packageContent['Package']['types'].reduce((r, e) => pkg[e.name[0]] = [...new Set((pkg[e.name[0]] || []).concat(e.members))], pkg)
+    if (packageContent['Package'].types !== undefined) {
+        packageContent['Package'].types.reduce((r, e) => pkg[e.name[0]] = [...new Set((pkg[e.name[0]] || []).concat(e.members))], pkg)
     }
+    
     const xml = xmlbuilder.create('Package')
         .att('xmlns', 'http://soap.sforce.com/2006/04/metadata')
         .dec('1.0', 'UTF-8');
@@ -17,7 +18,10 @@ const packageBuilder = (packageContent: String): String => {
         pkg[i].sort().forEach(y => types.ele('members', y))
         types.ele('name', i);
     });
-    xml.ele('version', '' + packageContent['Package'].version[0]);
+    
+    if (packageContent['Package'].version !== undefined) {
+        xml.ele('version', '' + packageContent['Package'].version[0]);
+    }
     return xml.end(end);
 }
 
